@@ -45,8 +45,8 @@ function prompt_steeef_setup {
   if [[ $TERM = *256color* || $TERM = *rxvt* ]]; then
     _prompt_steeef_colors=(
       "%F{81}"  # Turquoise
-      "%F{166}" # Orange
-      "%F{135}" # Purple
+      "%F{135}" # Orange
+      "%F{166}" # Purple
       "%F{161}" # Hotpink
       "%F{118}" # Limegreen
     )
@@ -54,7 +54,7 @@ function prompt_steeef_setup {
     _prompt_steeef_colors=(
       "%F{cyan}"
       "%F{yellow}"
-      "%F{magenta}"
+      "%F{blue}"
       "%F{red}"
       "%F{green}"
     )
