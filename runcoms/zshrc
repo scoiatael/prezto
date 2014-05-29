@@ -10,8 +10,6 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Customize to your needs...
-
 # A shortcut function that simplifies usage of xclip.
 # source : http://madebynathan.com/2011/10/04/a-nicer-way-to-use-xclip/
 # - Accepts input from either stdin (pipe), or params.
@@ -90,9 +88,6 @@ expand-or-complete-with-dots() {
 }
 zle -N expand-or-complete-with-dots
 bindkey "^I" expand-or-complete-with-dots
-
-#export TERM="rxvt"
-export VISUAL="vim"
 
 setopt SHARE_HISTORY
 

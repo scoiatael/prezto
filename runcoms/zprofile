@@ -17,8 +17,10 @@ fi
 # Editors
 #
 
-export EDITOR='nano'
-export VISUAL='nano'
+#export TERM="rxvt"
+export VISUAL="vim"
+
+export EDITOR='vim'
 export PAGER='less'
 
 #

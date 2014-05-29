@@ -3,7 +3,7 @@
 #
 # Authors:
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
+
 
 #
 # General
@@ -26,25 +26,33 @@ zstyle ':prezto:*:*' color 'yes'
 zstyle ':prezto:load' pmodule \
   'environment' \
   'terminal' \
-  'editor' \
   'history' \
   'directory' \
   'spectrum' \
   'utility' \
   'completion' \
-  'prompt' \
   'command-not-found' \
-  'pacman'
+  'pacman' \
+  'tmux' \
+  'editor' \
+  'syntax-highlighting' \
+  'history-substring-search' \
+  'prompt' 
 
 #
 # Editor
 #
 
 # Set the key mapping style to 'emacs' or 'vi'.
-zstyle ':prezto:module:editor' key-bindings 'emacs'
+zstyle ':prezto:module:editor' key-bindings 'vi'
 
 # Auto convert .... to ../..
+
  zstyle ':prezto:module:editor' dot-expansion 'yes'
+
+# Edit mode info
+zstyle ':prezto:module:editor:info:keymap:primary' format 'I'
+zstyle ':prezto:module:editor:info:keymap:alternate' format 'C'
 
 #
 # Git
@@ -127,30 +135,30 @@ zstyle ':prezto:module:prompt' theme 'steeef'
    'root'
 #
 # Set syntax highlighting styles.
- zstyle ':prezto:module:syntax-highlighting' styles \
-   'builtin' 'bg=blue' \
-   'command' 'bg=blue' \
-   'function' 'bg=blue'
+# zstyle ':prezto:module:syntax-highlighting' styles \
+#   'builtin' 'bg=blue fg=black' \
+#   'command' 'bg=blue fg=black' \
+#   'function' 'bg=blue fg=black'
 
 #
 # Terminal
 #
 
 # Auto set the tab and window titles.
-# zstyle ':prezto:module:terminal' auto-title 'yes'
+zstyle ':prezto:module:terminal' auto-title 'yes'
 
 # Set the window title format.
-# zstyle ':prezto:module:terminal:window-title' format '%n@%m: %s'
+zstyle ':prezto:module:terminal:window-title' format '%n@%m: %s'
 
 # Set the tab title format.
-# zstyle ':prezto:module:terminal:tab-title' format '%m: %s'
+zstyle ':prezto:module:terminal:tab-title' format '%m: %s'
 
 #
 # Tmux
 #
 
 # Auto start a session when Zsh is launched in a local terminal.
-# zstyle ':prezto:module:tmux:auto-start' local 'yes'
+zstyle ':prezto:module:tmux:auto-start' local 'yes'
 
 # Auto start a session when Zsh is launched in a SSH connection.
 # zstyle ':prezto:module:tmux:auto-start' remote 'yes'

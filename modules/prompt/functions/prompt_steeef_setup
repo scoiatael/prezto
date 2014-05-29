@@ -49,14 +49,16 @@ function prompt_steeef_setup {
       "%F{166}" # Purple
       "%F{161}" # Hotpink
       "%F{118}" # Limegreen
+      "%F{099}" # Blue
     )
   else
     _prompt_steeef_colors=(
       "%F{cyan}"
       "%F{yellow}"
-      "%F{blue}"
+      "%F{magenta}"
       "%F{red}"
       "%F{green}"
+      "%F{blue}"
     )
   fi
 
@@ -86,9 +88,10 @@ function prompt_steeef_setup {
 
   # Define prompts.
   PROMPT="
-${_prompt_steeef_colors[3]}%n%f at ${_prompt_steeef_colors[2]}%m%f in ${_prompt_steeef_colors[5]}%~%f "'${vcs_info_msg_0_}'"
-"'$python_info[virtualenv]'"$ "
+${_prompt_steeef_colors[6]}%n%f at ${_prompt_steeef_colors[2]}%m%f in ${_prompt_steeef_colors[5]}%~%f "'${vcs_info_msg_0_}'"
+"'$python_info[virtualenv]''[$editor_info[keymap]]'"$ "
   RPROMPT=''
+
 }
 
 prompt_steeef_setup "$@"
