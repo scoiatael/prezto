@@ -51,8 +51,8 @@ zstyle ':prezto:module:editor' key-bindings 'vi'
  zstyle ':prezto:module:editor' dot-expansion 'yes'
 
 # Edit mode info
-zstyle ':prezto:module:editor:info:keymap:primary' format 'I'
-zstyle ':prezto:module:editor:info:keymap:alternate' format 'C'
+zstyle ':prezto:module:editor:info:keymap:primary' format '>'
+zstyle ':prezto:module:editor:info:keymap:alternate' format ':'
 
 #
 # Git
