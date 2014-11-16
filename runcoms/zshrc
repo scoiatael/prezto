@@ -10,6 +10,8 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+# Customize to your needs...
+#
 # A shortcut function that simplifies usage of xclip.
 # source : http://madebynathan.com/2011/10/04/a-nicer-way-to-use-xclip/
 # - Accepts input from either stdin (pipe), or params.
@@ -47,9 +49,9 @@ cb() {
 # Aliases / functions leveraging the cb() function
 # ------------------------------------------------
 # Copy contents of a file
-function cbf() { cat "$1" | cb; }  
+function cbf() { cat "$1" | cb; }
 # Copy current working directory
-alias cbwd="pwd | cb"  
+alias cbwd="pwd | cb"
 
 source_env() {
   DIRECTORY="$PWD"
