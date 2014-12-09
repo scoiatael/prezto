@@ -23,6 +23,8 @@ export VISUAL="vim"
 export EDITOR='vim'
 export PAGER='less'
 
+export GOPATH="$HOME/Documents/gocode"
+
 #
 # Language
 #
