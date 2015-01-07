@@ -80,6 +80,7 @@ source_env() {
 }
 
 alias s="sudo"
+alias se="sudo -E"
 alias c="cd"
 alias e="source_env"
 alias vi="vim"
