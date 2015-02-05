@@ -49,6 +49,7 @@ typeset -gU cdpath fpath mailpath path
 path=(
   $HOME/.local/bin
   $HOME/.rvm/bin
+  /usr/local/heroku/bin
   /usr/local/{bin,sbin}
   $path
 )
