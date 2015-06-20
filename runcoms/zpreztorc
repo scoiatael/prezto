@@ -44,15 +44,15 @@ zstyle ':prezto:load' pmodule \
 #
 
 # Set the key mapping style to 'emacs' or 'vi'.
-zstyle ':prezto:module:editor' key-bindings 'emacs'
+zstyle ':prezto:module:editor' key-bindings 'vi'
+
+export KEYTIMEOUT=1
+# # ctrl-w removed word backwards
+bindkey -M viins '^w' backward-kill-word
 
 # Auto convert .... to ../..
 
  zstyle ':prezto:module:editor' dot-expansion 'yes'
-
-# Edit mode info
-zstyle ':prezto:module:editor:info:keymap:primary' format '>'
-zstyle ':prezto:module:editor:info:keymap:alternate' format ':'
 
 #
 # Git
