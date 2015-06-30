@@ -42,16 +42,16 @@ function prompt_steeef_setup {
   add-zsh-hook precmd prompt_steeef_precmd
 
   # Use extended color pallete if available.
-  if [[ $TERM = *256color* || $TERM = *rxvt* ]]; then
-    _prompt_steeef_colors=(
-      "%F{81}"  # Turquoise
-      "%F{135}" # Orange
-      "%F{166}" # Purple
-      "%F{161}" # Hotpink
-      "%F{118}" # Limegreen
-      "%F{099}" # Blue
-    )
-  else
+  #if [[ $TERM = *256color* || $TERM = *rxvt* ]]; then
+    #_prompt_steeef_colors=(
+      #"%F{81}"   Turquoise
+      #"%F{135}"  Orange
+      #"%F{166}"  Purple
+      #"%F{161}"  Hotpink
+      #"%F{118}"  Limegreen
+      #"%F{099}"  Blue
+    #)
+  #else
     _prompt_steeef_colors=(
       "%F{cyan}"
       "%F{yellow}"
@@ -60,7 +60,7 @@ function prompt_steeef_setup {
       "%F{green}"
       "%F{blue}"
     )
-  fi
+  #fi
 
   # Formats:
   #   %b - branchname
