@@ -84,6 +84,7 @@ alias se="sudo -E"
 alias c="cd"
 alias e="source_env"
 alias vi="vim"
+alias emacs="emacsclient -c"
 
 expand-or-complete-with-dots() {
   echo -n "\e[31m......\e[0m"
