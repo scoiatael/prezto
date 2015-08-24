@@ -1,3 +1,4 @@
+#!/usr/bin/zsh -f
 #
 # Executes commands at the start of an interactive session.
 #
@@ -7,7 +8,7 @@
 
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+		source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
 # Customize to your needs...
@@ -17,34 +18,34 @@ fi
 # - Accepts input from either stdin (pipe), or params.
 # ------------------------------------------------
 cb() {
-  local _scs_col="\e[0;32m"; local _wrn_col='\e[1;31m'; local _trn_col='\e[0;33m'
-  # Check that xclip is installed.
-  if ! type xclip > /dev/null 2>&1; then
-    echo -e "$_wrn_col""You must have the 'xclip' program installed.\e[0m"
-  # Check user is not root (root doesn't have access to user xorg server)
-  elif [[ "$USER" == "root" ]]; then
-    echo -e "$_wrn_col""Must be regular user (not root) to copy a file to the clipboard.\e[0m"
-  else
-    # If no tty, data should be available on stdin
-    if ! [[ "$( tty )" == /dev/* ]]; then
-      input="$(< /dev/stdin)"
-    # Else, fetch input from params
-    else
-      input="$*"
-    fi
-    if [ -z "$input" ]; then  # If no input, print usage message.
-      echo "Copies a string to the clipboard."
-      echo "Usage: cb <string>"
-      echo "       echo <string> | cb"
-    else
-      # Copy input to clipboard
-      echo -n "$input" | xclip -selection c
-      # Truncate text for status
-      if [ ${#input} -gt 80 ]; then input="$(echo $input | cut -c1-80)$_trn_col...\e[0m"; fi
-      # Print status.
-      echo -e "$_scs_col""Copied to clipboard:\e[0m $input"
-    fi
-  fi
+	local _scs_col="\e[0;32m"; local _wrn_col='\e[1;31m'; local _trn_col='\e[0;33m'
+	# Check that xclip is installed.
+	if ! type xclip > /dev/null 2>&1; then
+		echo -e "$_wrn_col""You must have the 'xclip' program installed.\e[0m"
+		# Check user is not root (root doesn't have access to user xorg server)
+	elif [[ "$USER" == "root" ]]; then
+		echo -e "$_wrn_col""Must be regular user (not root) to copy a file to the clipboard.\e[0m"
+	else
+		# If no tty, data should be available on stdin
+		if ! [[ "$( tty )" == /dev/* ]]; then
+			input="$(< /dev/stdin)"
+			# Else, fetch input from params
+		else
+			input="$*"
+		fi
+		if [ -z "$input" ]; then	# If no input, print usage message.
+			echo "Copies a string to the clipboard."
+			echo "Usage: cb <string>"
+			echo "			 echo <string> | cb"
+		else
+			# Copy input to clipboard
+			echo -n "$input" | xclip -selection c
+			# Truncate text for status
+			if [ ${#input} -gt 80 ]; then input="$(echo $input | cut -c1-80)$_trn_col...\e[0m"; fi
+			# Print status.
+			echo -e "$_scs_col""Copied to clipboard:\e[0m $input"
+		fi
+	fi
 }
 # Aliases / functions leveraging the cb() function
 # ------------------------------------------------
@@ -54,29 +55,35 @@ function cbf() { cat "$1" | cb; }
 alias cbwd="pwd | cb"
 
 source_env() {
-  DIRECTORY="$PWD"
-  while true; do
-    if [ -f './.env.rc' ]; then
-      source './.env.rc'
-      SRC=$PWD/.env.rc
-      break
-    fi
-    if [ -f './env' ]; then
-      source './env'
-      SRC=$PWD/env
-      break
-    fi
-    [ $PWD = '/' ] && break
-    [[ -e ".git" ]] && break
-    cd -q ..
-  done
-  cd -q $DIRECTORY
-  unset DIRECTORY
-  if [[ ! -z $SRC ]] ; then
-    echo "..sourced $SRC.."
-  else
-    echo ".. sourced nothing.."
-  fi
+	DIRECTORY="$PWD"
+	while true; do
+		if [ -f './.env.rc' ]; then
+			source './.env.rc'
+			SRC=$PWD/.env.rc
+			break
+		fi
+		if [ -f './env' ]; then
+			source './env'
+			SRC=$PWD/env
+			break
+		fi
+		[ $PWD = '/' ] && break
+		[[ -e ".git" ]] && break
+		cd -q ..
+	done
+	cd -q $DIRECTORY
+	unset DIRECTORY
+	if [[ ! -z $SRC ]] ; then
+		echo "..sourced $SRC.."
+	else
+		echo ".. sourced nothing.."
+	fi
+}
+
+expand-or-complete-with-dots() {
+	echo -n "\e[31m......\e[0m"
+	zle expand-or-complete
+	zle redisplay
 }
 
 alias s="sudo"
@@ -84,18 +91,12 @@ alias se="sudo -E"
 alias c="cd"
 alias e="source_env"
 alias vi="vim"
-alias em="emacs"
 # Emacs Daemon
 # Can be solved more gracefully by lazily starting emacs deamon this way
 alias emacs="emacsclient -c -a ''"
 # if you don't mind waiting a bit for a first start, or can be started by systemd --user
 # alias emacs="emacsclient -s /tmp/emacs`id -u`/server -c"
 
-expand-or-complete-with-dots() {
-  echo -n "\e[31m......\e[0m"
-  zle expand-or-complete
-  zle redisplay
-}
 zle -N expand-or-complete-with-dots
 bindkey "^I" expand-or-complete-with-dots
 
