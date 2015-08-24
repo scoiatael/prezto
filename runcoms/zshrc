@@ -84,6 +84,12 @@ alias se="sudo -E"
 alias c="cd"
 alias e="source_env"
 alias vi="vim"
+alias em="emacs"
+# Emacs Daemon
+# Can be solved more gracefully by lazily starting emacs deamon this way
+alias emacs="emacsclient -c -a ''"
+# if you don't mind waiting a bit for a first start, or can be started by systemd --user
+# alias emacs="emacsclient -s /tmp/emacs`id -u`/server -c"
 
 expand-or-complete-with-dots() {
   echo -n "\e[31m......\e[0m"
