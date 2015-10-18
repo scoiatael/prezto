@@ -114,3 +114,6 @@ export ZLS_COLORS='no=00;38;5;244:rs=0:di=00;38;5;33:ln=00;38;5;37:mh=00:pi=48;5
 export LS_COLORS=$ZLS_COLORS
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 export DTK_PROGRAM=espeak
+
+# OPAM configuration
+. /home/l/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
