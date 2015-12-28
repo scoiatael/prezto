@@ -13,6 +13,16 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 		source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+# Source Fzf
+if [[ -s "/etc/profile.d/fzf.zsh" ]]; then
+		source "/etc/profile.d/fzf.zsh"
+fi
+
+# Source autojump
+if [[ -s "/etc/profile.d/autojump.zsh" ]]; then
+		source "/etc/profile.d/autojump.zsh"
+fi
+
 # Customize to your needs...
 #
 # A shortcut function that simplifies usage of xclip.
