@@ -6,6 +6,8 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
+export KEYTIMEOUT=10
+
 [[ $EMACS = t ]] && unsetopt zle
 
 # Source Prezto.
@@ -17,6 +19,8 @@ fi
 if [[ -s "/etc/profile.d/fzf.zsh" ]]; then
 		source "/etc/profile.d/fzf.zsh"
 fi
+
+bindkey -M vicmd cd fzf-cd-widget
 
 # Source autojump
 if [[ -s "/etc/profile.d/autojump.zsh" ]]; then
