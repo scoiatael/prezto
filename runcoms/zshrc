@@ -27,6 +27,9 @@ if [[ -s "/etc/profile.d/autojump.zsh" ]]; then
     source "/etc/profile.d/autojump.zsh"
 fi
 
+# Source thefuck
+which thefuck &&  eval $(thefuck --alias)
+
 # Customize to your needs...
 #
 # A shortcut function that simplifies usage of xclip.
