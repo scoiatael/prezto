@@ -30,6 +30,9 @@ fi
 # Source thefuck
 which thefuck &&  eval $(thefuck --alias)
 
+# Dont use enter, use space!
+bindkey -M vicmd ' ' accept-line
+
 # Customize to your needs...
 #
 # A shortcut function that simplifies usage of xclip.
