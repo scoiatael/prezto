@@ -76,6 +76,8 @@ function cbf() { cat "$1" | cb; }
 # Copy current working directory
 alias cbwd="pwd | cb"
 
+alias wttr='curl wttr.in'
+
 source_env() {
   local DIRECTORY="$PWD"
   local SRC=''
