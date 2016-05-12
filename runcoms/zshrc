@@ -18,8 +18,8 @@ else
 fi
 
 # Source Fzf
-if [[ -s "/etc/profile.d/fzf.zsh" ]]; then
-    source "/etc/profile.d/fzf.zsh"
+if [[ -s "/usr/share/fzf/key-bindings.zsh" ]]; then
+    source "/usr/share/fzf/key-bindings.zsh"
 else
   echo 'No fzf :('
 fi
