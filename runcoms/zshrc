@@ -86,7 +86,16 @@ function cbf() { cat "$1" | cb; }
 # Copy current working directory
 alias cbwd="pwd | cb"
 
+# Quickstart openvpn
+alias ovpn="cd $HOME/.openvpn && sudo openvpn lczaplinski.conf"
+
 function wttr() { curl "wttr.in/$1" }
+
+function bp() { mv $1 $(dirname $1)/$(basename $1)_bp }
+function unbp() {
+  local name=$(basename $1)
+  mv $1 $(dirname $1)/${name%_bp}
+}
 
 source_env() {
   local DIRECTORY="$PWD"
