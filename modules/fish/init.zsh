@@ -5,4 +5,6 @@ if (( ! $+commands[fish] )); then
   return 1
 fi
 
-exec fish
+if [[ $TERMINOLOGY == 1 ]]; then
+  exec fish
+fi
