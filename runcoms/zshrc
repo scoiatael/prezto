@@ -159,3 +159,5 @@ export ZLS_COLORS='no=00;38;5;244:rs=0:di=00;38;5;33:ln=00;38;5;37:mh=00:pi=48;5
 export LS_COLORS=$ZLS_COLORS
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 export DTK_PROGRAM=espeak
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
